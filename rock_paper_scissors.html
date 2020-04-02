@@ -6,20 +6,44 @@
 </head>
 <body>
     <script>
-        function computerPlay() {
-            let computer = Math.floor(Math.random() * 3);
-            let result;
-            if (computer == 0) {
-                result = 'Rock';
-            } else if (computer == 1) {
-                result = 'Paper';
-            } else if (computer == 2) {
-                result = 'Scissors';
+        function computerSelection() {
+            let computerResult = Math.floor(Math.random() * 3);
+            if (computerResult == 0) {
+                return 'Rock';
+            } else if (computerResult == 1) {
+                return 'Paper';
+            } else {
+                return 'Scissors';
             }
         }
 
         function playerSelection() {
-            let player = prompt('Choose Rock, Paper or Scissors:');
+            let playerResult = prompt('Choose Rock, Paper or Scissors:');
+            if (playerResult == 'Rock') {
+                return 'Rock'
+            } else if (playerResult == 'Paper') {
+                return 'Paper'
+            } else if (playerResult == 'Scissors') {
+                return 'Scissors'
+            }
+        }
+
+        function rockPaperScissors(playerSelection, computerSelection) {
+            if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+                return 'You lose!';
+            } else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+                return 'You win!';
+            } else if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
+                return 'You lose!';
+            } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+                return 'You win!';
+            } else if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
+                return 'You lose!';
+            } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
+                return 'You win!';
+            } else {
+                return "It's a tie!";
+            }
         }
     </script>
 </body>
