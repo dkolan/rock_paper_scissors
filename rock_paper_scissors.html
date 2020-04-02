@@ -7,7 +7,7 @@
 <body>
     <script>
         function computerSelection() {
-            let computerResult = Math.floor(Math.random() * 3);
+            let computerResult = Math.floor(Math.random()*3);
             if (computerResult == 0) {
                 return 'Rock';
             } else if (computerResult == 1) {
@@ -20,11 +20,11 @@
         function playerSelection() {
             let playerResult = prompt('Choose Rock, Paper or Scissors:');
             if (playerResult == 'Rock') {
-                return 'Rock'
+                return 'Rock';
             } else if (playerResult == 'Paper') {
-                return 'Paper'
+                return 'Paper';
             } else if (playerResult == 'Scissors') {
-                return 'Scissors'
+                return 'Scissors';
             }
         }
 
