@@ -6,44 +6,58 @@
 </head>
 <body>
     <script>
-        function computerSelection() {
-            let computerResult = Math.floor(Math.random()*3);
-            if (computerResult == 0) {
-                return 'Rock';
-            } else if (computerResult == 1) {
-                return 'Paper';
-            } else {
-                return 'Scissors';
-            }
-        }
+        let playerPoints = 0;
+        let computerPoints = 0;
+        let rounds = 0;
 
         function playerSelection() {
-            let playerResult = prompt('Choose Rock, Paper or Scissors:');
-            if (playerResult == 'Rock') {
-                return 'Rock';
-            } else if (playerResult == 'Paper') {
-                return 'Paper';
-            } else if (playerResult == 'Scissors') {
-                return 'Scissors';
+            let playerResult = prompt('Choose Rock, Paper or Scissors:').toLowerCase();
+            return playerResult;
+        }
+
+        function computerSelection() {
+            let computerResult = Math.floor(Math.random() * 3);
+            if (computerResult == 0) {
+                return 'rock';
+            } else if (computerResult == 1) {
+                return 'paper';
+            } else {
+                return 'scissors';
             }
         }
 
-        function rockPaperScissors(playerSelection, computerSelection) {
-            if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+        function rockPaperScissors() {
+            let playerResult = playerSelection()
+            let computerResult = computerSelection()
+
+            if (playerResult == 'rock' && computerResult == 'paper') {
+                computerPoints++;
                 return 'You lose!';
-            } else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+            } else if (playerResult == 'rock' && computerResult == 'scissors') {
+                playerPoints++;
                 return 'You win!';
-            } else if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
+            } else if (playerResult == 'paper' && computerResult == 'scissors') {
+                computerPoints++;
                 return 'You lose!';
-            } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+            } else if (playerResult == 'paper' && computerResult == 'rock') {
+                playerPoints++;
                 return 'You win!';
-            } else if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
+            } else if (playerResult == 'scissors' && computerResult == 'rock') {
+                computerPoints++;
                 return 'You lose!';
-            } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
+            } else if (playerResult == 'scissors' && computerResult == 'paper') {
+                computerPoints++;
                 return 'You win!';
             } else {
                 return "It's a tie!";
             }
+        }
+
+        function game() {
+            for (round = 0; round < 5; round++) {
+                rockPaperScissors()
+            }
+            return 'Final score is Player: ' + playerPoints + ' Computer: ' + computerPoints; ' .';
         }
     </script>
 </body>
